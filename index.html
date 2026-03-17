@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<body>
 <nav class="topnav">
     <div class="logo">Skogly Ungdomshus</div>
 
@@ -26,8 +27,6 @@
         <li><a href="/om.html">Om Skogly</a></li>
     </ul>
 </nav>
-
-<body>
 
 <!-- =============HERO-SEKSJON================ -->
 <section class="hero">
@@ -50,7 +49,7 @@
     <p>Skogly er ungdomshuset i Kaupanger, drive av frivillige krefter gjennom Skogly Ungdomslag. Her finn du lokale for arrangement, øvingar, møte og aktivitetar.</p>
 
     <div class="card">
-        <h3>Sjå våre lokaler.</h3>
+        <h3>Sjå våre lokalar.</h3>
         <p>Perfekt for både store og små arrangement.</p>
         <a href="leige.html" class="btn-primary">Les meir</a>
     </div>
@@ -145,14 +144,11 @@ document.getElementById('lightbox').addEventListener('click', () => {
 });
 </script>
 
-</body>
-</html>
-
 <script>
-const links = document.querySelectorAll('.topnav-links a');
+const links = document.querySelectorAll('.nav-links a');
 const slider = document.createElement('div');
 slider.classList.add('nav-slider');
-document.querySelector('.topnav-links').appendChild(slider);
+document.querySelector('.nav-links').appendChild(slider);
 
 function moveSlider(el) {
     slider.style.width = el.offsetWidth + "px";
@@ -166,8 +162,11 @@ links.forEach(link => {
     link.addEventListener('mouseenter', () => moveSlider(link));
 });
 
-document.querySelector('.topnav-links').addEventListener('mouseleave', () => {
-    const active = document.querySelector('.topnav-links a.active');
+document.querySelector('.nav-links').addEventListener('mouseleave', () => {
+    const active = document.querySelector('.nav-links a.active');
     moveSlider(active);
 });
 </script>
+
+</body>
+</html>
