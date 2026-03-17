@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilkår for leige</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<div class="header-wrapper">
+    <input type="checkbox" id="nav-toggle">
+    <nav class="topnav">
+        <div class="topnav-left">Skogly</div>
+        <label for="nav-toggle" class="mobile-toggle">☰</label>
+        <div class="topnav-links">
+            <a href="index.html">Forside</a>
+            <a href="leige.html">Leige lokalet</a>
+            <a href="brakebrakka.html">Bråkebrakka</a>
+            <a class="active" href="vilkar.html">Vilkår</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="om.html">Om laget</a>
+        </div>
+    </nav>
+</div>
+
+<!-- =============HERO-SEKSJON================ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Velkommen til Skogly Ungdomshus</h1>
+        <p>Samhald, aktivitet og kultur – midt i bygda.</p>
+        <a href="kontakt.html" class="hero-btn"><b>Kontakt oss</b></a>
+    </div>
+
+    <div class="hero-image">
+        <img src="Bilder/Lokalet/Skogly_minimalistic1.png" alt="Skogly-bygget">
+    </div>
+</section>
+
+<section>
+    <h2>Reglar</h2>
+    <ul>
+        <li>Lokalet skal forlatast reint.</li>
+        <li>Røyking er ikkje tillate inne.</li>
+        <li>Skadar må meldast umiddelbart.</li>
+        <li>Leigetakar er ansvarleg for gjester.</li>
+    </ul>
+
+    <div class="card">
+        <h3>Avbestilling</h3>
+        <p>Avbestilling seinare enn 48 timar før leige kan medføre gebyr.</p>
+    </div>
+</section>
+
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+    <div class="footer-inner">
+
+        <div class="footer-col">
+            <h3>Skogly Ungdomslag</h3>
+            <p>Ein frivillig organisasjon som skaper aktivitet og kultur i Kaupanger.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Kontakt</h3>
+            <p>E‑post: eksempel@epost.no</p>
+            <p>Telefon: 000 00 000</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Lenker</h3>
+            <a href="leige.html">Leige lokalet</a><br>
+            <a href="brakebrakka.html">Bråkebrakka</a><br>
+            <a href="vilkar.html">Vilkår</a><br>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        © Skogly Ungdomslag Kaupanger – Org.nr. 935 164 230
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-backdrop" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+
+</body>
+</html>
+
+<script>
+const links = document.querySelectorAll('.topnav-links a');
+const slider = document.createElement('div');
+slider.classList.add('nav-slider');
+document.querySelector('.topnav-links').appendChild(slider);
+
+function moveSlider(el) {
+    slider.style.width = el.offsetWidth + "px";
+    slider.style.left = el.offsetLeft + "px";
+}
+
+links.forEach(link => {
+    if (link.classList.contains('active')) {
+        moveSlider(link);
+    }
+    link.addEventListener('mouseenter', () => moveSlider(link));
+});
+
+document.querySelector('.topnav-links').addEventListener('mouseleave', () => {
+    const active = document.querySelector('.topnav-links a.active');
+    moveSlider(active);
+});
+</script>
