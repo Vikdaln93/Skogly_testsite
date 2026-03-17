@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skogly Ungdomslag Kaupanger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<nav class="topnav">
+    <div class="logo">Skogly Ungdomshus</div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="leige.html">Leige lokalet</a></li>
+        <li><a href="brakebrakka.html">Bråkebrakka</a></li>
+        <li><a href="vilkar.html">Vilkår</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="om.html">Om Skogly</a></li>
+    </ul>
+</nav>
+
+<body>
+
+<!-- =============HERO-SEKSJON================ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Velkommen til Skogly Ungdomshus</h1>
+        <p><b>Samhald, aktivitet og kultur – midt i bygda.</b></p>
+        <a href="kontakt.html" class="hero-btn"><b>Kontakt oss</b></a>
+    </div>
+
+    <div class="hero-image">
+        <img src="Bilder/Lokalet/Skogly_minimalistic1.png" alt="Skogly-bygget">
+    </div>
+</section>
+
+
+<!-- ============================
+     HOVUDINNHALD
+     ============================ -->
+<section>
+    <p>Skogly er ungdomshuset i Kaupanger, drive av frivillige krefter gjennom Skogly Ungdomslag. Her finn du lokale for arrangement, øvingar, møte og aktivitetar.</p>
+
+    <div class="card">
+        <h3>Sjå våre lokaler.</h3>
+        <p>Perfekt for både store og små arrangement.</p>
+        <a href="leige.html" class="btn-primary">Les meir</a>
+    </div>
+
+    <div class="card">
+        <h3>Bråkebrakka musikkbinge</h3>
+        <p>Eit øvingsrom for band og musikarar.</p>
+        <a href="brakebrakka.html" class="btn-primary">Les meir</a>
+    </div>
+</section>
+
+<!-- ============================
+     GALLERI
+     ============================ -->
+<section class="section-alt">
+    <h2>Biletegalleri</h2>
+
+    <div class="gallery-grid">
+        <img src="Bilder/Lokalet/Skogly_oppgradert_lys.jpg" alt="Sal 1">
+        <img src="Bilder/Musikk/Konsert1.jpg" alt="Sal 2">
+        <img src="Bilder/Musikk/Scene_band1.jpg" alt="Kjøkken">
+        <img src="Bilder/Musikk/Scene_band2.jpg" alt="Bråkebrakka">
+        <img src="Bilder/Musikk/Scene_lys.jpg" alt="Øvingsrom">
+        <img src="Bilder/Musikkbingen/Musikkbinge_interior.jpg" alt="Utsida av Skogly">
+    </div>
+</section>
+
+<!-- ===============SPONSORAR================= -->
+<section>
+    <h2>Våre sponsorar</h2>
+
+    <div class="sponsor-gallery">
+        <div class="sponsor-item">
+            <img src="Bilder/Sponsorar/Lerum_logo.svg" alt="Lerum">
+        </div>
+        <div class="sponsor-item">
+            <img src="Bilder/Sponsorar/Europris_logo.png" alt="Europris">
+        </div>
+        <div class="sponsor-item">
+            <img src="Bilder/Sponsorar/Toyota_sogn.jpg" alt="Toyota Sogn">
+        </div>
+    </div>
+</section>
+<!-- ========================================= -->
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+    <div class="footer-inner">
+
+        <div class="footer-col">
+            <h3>Skogly Ungdomslag</h3>
+            <p>Ein frivillig organisasjon som skaper aktivitet og kultur i Kaupanger.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Kontakt</h3>
+            <p>E‑post: eksempel@epost.no</p>
+            <p>Telefon: 000 00 000</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Lenker</h3>
+            <a href="leige.html">Leige lokalet</a><br>
+            <a href="brakebrakka.html">Bråkebrakka</a><br>
+            <a href="vilkar.html">Vilkår</a><br>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        © Skogly Ungdomslag Kaupanger – Org.nr. 935 164 230
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-backdrop" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+
+</body>
+</html>
+
+<script>
+const links = document.querySelectorAll('.topnav-links a');
+const slider = document.createElement('div');
+slider.classList.add('nav-slider');
+document.querySelector('.topnav-links').appendChild(slider);
+
+function moveSlider(el) {
+    slider.style.width = el.offsetWidth + "px";
+    slider.style.left = el.offsetLeft + "px";
+}
+
+links.forEach(link => {
+    if (link.classList.contains('active')) {
+        moveSlider(link);
+    }
+    link.addEventListener('mouseenter', () => moveSlider(link));
+});
+
+document.querySelector('.topnav-links').addEventListener('mouseleave', () => {
+    const active = document.querySelector('.topnav-links a.active');
+    moveSlider(active);
+});
+</script>
