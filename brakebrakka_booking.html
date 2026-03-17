@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skogly Ungdomslag Kaupanger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<nav class="topnav">
+    <div class="logo">Skogly Ungdomshus</div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="leige.html">Leige lokalet</a></li>
+        <li><a href="brakebrakka.html">Bråkebrakka</a></li>
+        <li><a href="vilkar.html">Vilkår</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="om.html">Om laget</a></li>
+    </ul>
+</nav>
+
+<body>
+
+    <div class="card">
+    <h3>Booking</h3>
+    <!-- Bookingtjeneste iframe --><iframe src="https://bookingtjeneste.no/brakebrakka?iframe=1" style="max-width:1001px;height:600px;width: 100%;"></iframe><!-- Bookingtjeneste iframe -->
+    </div>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+    <div class="footer-inner">
+
+        <div class="footer-col">
+            <h3>Skogly Ungdomslag</h3>
+            <p>Ein frivillig organisasjon som skaper aktivitet og kultur i Kaupanger.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Kontakt</h3>
+            <p>E‑post: eksempel@epost.no</p>
+            <p>Telefon: 000 00 000</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Lenker</h3>
+            <a href="leige.html">Leige lokalet</a><br>
+            <a href="brakebrakka.html">Bråkebrakka</a><br>
+            <a href="vilkar.html">Vilkår</a><br>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        © Skogly Ungdomslag Kaupanger – Org.nr. 935 164 230
+    </div>
+</footer>
+
+<script>
+function openBookNowIframe() {
+    if (document.getElementById('bookNowIframeContainer')) {
+        return;
+    }
+
+    var iframeContainer = document.createElement('div');
+    iframeContainer.id = 'bookNowIframeContainer';
+
+    var iframe = document.createElement('iframe');
+    iframe.id = 'bookNowIframe';
+    iframe.src = "https://bookingtjeneste.no/brakebrakka?iframe=1"; // Bruker dynamisk URL for iFrame
+
+    iframeContainer.appendChild(iframe);
+
+    var closeButton = document.createElement('img');
+    closeButton.src = "https://bookingtjeneste.no/wp-content/plugins/Booknetic-saas-Popup-Modal/images/x.png";
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    closeButton.style.width = '35px';
+    closeButton.style.height = '35px';
+    closeButton.style.cursor = 'pointer';
+
+    closeButton.onclick = function() {
+        document.body.removeChild(iframeContainer);
+    };
+
+    iframeContainer.appendChild(closeButton);
+    document.body.appendChild(iframeContainer);
+
+    if (window.innerWidth >= 1001) {
+        iframe.style.height = '90vh';
+    } else {
+        iframe.style.height = '100%';
+    }
+}
+</script>
+        

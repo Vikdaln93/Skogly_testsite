@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt oss</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header-wrapper">
+    <input type="checkbox" id="nav-toggle">
+    <nav class="topnav">
+        <div class="topnav-left">Skogly</div>
+        <label for="nav-toggle" class="mobile-toggle">☰</label>
+        <div class="topnav-links">
+            <a href="index.html">Forside</a>
+            <a href="leige.html">Leige lokalet</a>
+            <a href="brakebrakka.html">Bråkebrakka</a>
+            <a href="vilkar.html">Vilkår</a>
+            <a class="active" href="kontakt.html">Kontakt</a>
+            <a href="om.html">Om laget</a>
+        </div>
+    </nav>
+</div>
+
+<!-- =============HERO-SEKSJON================ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Velkommen til Skogly Ungdomshus</h1>
+        <p>Samhald, aktivitet og kultur – midt i bygda.</p>
+        <a href="kontakt.html" class="hero-btn"><b>Kontakt oss</b></a>
+    </div>
+
+    <div class="hero-image">
+        <img src="Bilder/Lokalet/Skogly_minimalistic1.png" alt="Skogly-bygget">
+    </div>
+</section>
+
+<section>
+    <h2>Kontaktpersonar</h2>
+        <div class="staff-card">
+    <img src="Bilder/Ansatte/Bent_Sjothun.jpg" alt="Bent Sjøthun">
+    <div class="staff-info">
+        <h3>Bent Sjøthun</h3>
+        <p>Styreleiar</p>
+        <p>📞 000 00 000</p>
+    </div>
+</div>
+
+    <div class="staff-card">
+    <img src="Bilder/Ansatte/Jorn_Kristian_Engebo.jpg" alt="Jørn Kristian Engebø">
+    <div class="staff-info">
+        <h3>Jørn Kristian Engebø</h3>
+        <p>Bookingansvarleg/Styremedlem</p>
+        <p>📞 +47 95 19 18 91</p>
+    </div>
+</div>
+    <div class="staff-card">
+    <img src="Bilder/Ansatte/Andreas_Uglum_Vikdal.jpg" alt="Andreas Uglum Vikdal">
+    <div class="staff-info">
+        <h3>Andreas Uglum Vikdal</h3>
+        <p>Ansvarleg for musikkbingen/Styremedlem</p>
+        <p>📞 +47 95 82 23 46</p>
+    </div>
+</div>
+    <div class="staff-card">
+    <img src="Bilder/Ansatte/anonym_dame.jpg" alt="Trude Ramstad">
+    <div class="staff-info">
+        <h3>Trude Ramstad</h3>
+        <p>Styremedlem</p>
+    </div>
+</div>
+    <div class="staff-card">
+    <img src="Bilder/Ansatte/anonym_dame.jpg" alt="Farida Geithus">
+    <div class="staff-info">
+        <h3>Farida Geithus</h3>
+        <p>Styremedlem</p>
+    </div>
+</div>
+    <div class="staff-card">
+    <img src="BBilder/Ansatte/anonym_mann.jpg" alt="Jonas Aasen Engebø">
+    <div class="staff-info">
+        <h3>Jonas Aasen Engebø</h3>
+        <p>Styremedlem</p>
+    </div>
+</div>
+
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+    <div class="footer-inner">
+
+        <div class="footer-col">
+            <h3>Skogly Ungdomslag</h3>
+            <p>Ein frivillig organisasjon som skaper aktivitet og kultur i Kaupanger.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Kontakt</h3>
+            <p>E‑post: eksempel@epost.no</p>
+            <p>Telefon: 000 00 000</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Lenker</h3>
+            <a href="leige.html">Leige lokalet</a><br>
+            <a href="brakebrakka.html">Bråkebrakka</a><br>
+            <a href="vilkar.html">Vilkår</a><br>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        © Skogly Ungdomslag Kaupanger – Org.nr. 935 164 230
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-backdrop" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+
+document.getElementById('lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+
+</body>
+</html>
+
+<script>
+const links = document.querySelectorAll('.topnav-links a');
+const slider = document.createElement('div');
+slider.classList.add('nav-slider');
+document.querySelector('.topnav-links').appendChild(slider);
+
+function moveSlider(el) {
+    slider.style.width = el.offsetWidth + "px";
+    slider.style.left = el.offsetLeft + "px";
+}
+
+links.forEach(link => {
+    if (link.classList.contains('active')) {
+        moveSlider(link);
+    }
+    link.addEventListener('mouseenter', () => moveSlider(link));
+});
+
+document.querySelector('.topnav-links').addEventListener('mouseleave', () => {
+    const active = document.querySelector('.topnav-links a.active');
+    moveSlider(active);
+});
+</script>
